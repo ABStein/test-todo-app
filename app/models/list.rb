@@ -2,6 +2,7 @@ class List < ApplicationRecord
   has_many :tasks
 
   def complete_all_tasks!
+    tasks.update_all(complete: true)
     tasks.each do |task|
       task.update(complete: true)
     end
